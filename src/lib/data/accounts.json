@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1,
+		"label": "Cash",
+		"value": "cash"
+	},
+	{
+		"id": 2,
+		"label": "eWallet",
+		"value": "ewallet"
+	}
+]

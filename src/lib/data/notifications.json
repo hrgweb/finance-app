@@ -1,0 +1,27 @@
+[
+	{
+		"id": 1,
+		"label": "None",
+		"value": "none"
+	},
+	{
+		"id": 2,
+		"label": "On Dute Date",
+		"value": "on_dute_date"
+	},
+	{
+		"id": 3,
+		"label": "On Day Before",
+		"value": "on_day_before"
+	},
+	{
+		"id": 4,
+		"label": "Three Days Before",
+		"value": "three_days_before"
+	},
+	{
+		"id": 5,
+		"label": "Week Before",
+		"value": "week_before"
+	}
+]

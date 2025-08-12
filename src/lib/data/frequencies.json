@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1,
+		"label": "One Time",
+		"value": "one_time"
+	},
+	{
+		"id": 2,
+		"label": "Recurring Payment",
+		"value": "recurring_payment"
+	}
+]

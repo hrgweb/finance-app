@@ -1,0 +1,37 @@
+[
+	{
+		"id": 1,
+		"label": "Cash",
+		"value": "cash"
+	},
+	{
+		"id": 2,
+		"label": "Debit Card",
+		"value": "debit_card"
+	},
+	{
+		"id": 3,
+		"label": "Credit Card",
+		"value": "credit_card"
+	},
+	{
+		"id": 4,
+		"label": "Voucher",
+		"value": "voucher"
+	},
+	{
+		"id": 5,
+		"label": "Bank Transfer",
+		"value": "bank_transfer"
+	},
+	{
+		"id": 6,
+		"label": "Mobile Payment",
+		"value": "mobile_payment"
+	},
+	{
+		"id": 7,
+		"label": "Web Payment",
+		"value": "web_payment"
+	}
+]

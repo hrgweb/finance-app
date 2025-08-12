@@ -10,3 +10,12 @@
 </svelte:head>
 
 {@render children?.()}
+
+<style lang="postcss">
+	@reference "tailwindcss";
+	:global {
+		button {
+			@apply cursor-pointer;
+		}
+	}
+</style>

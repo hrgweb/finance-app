@@ -1,0 +1,57 @@
+[
+	{
+		"id": 1,
+		"label": "Food & Drinks",
+		"value": "food_and_drinks"
+	},
+	{
+		"id": 2,
+		"label": "Shopping",
+		"value": "shopping"
+	},
+	{
+		"id": 3,
+		"label": "Housing",
+		"value": "housing"
+	},
+	{
+		"id": 4,
+		"label": "Transportation",
+		"value": "transportation"
+	},
+	{
+		"id": 5,
+		"label": "Life & Entertainment",
+		"value": "life_and_entertainment"
+	},
+	{
+		"id": 6,
+		"label": "Vehicle",
+		"value": "vehicle"
+	},
+	{
+		"id": 7,
+		"label": "Communication, PC",
+		"value": "communication_pc"
+	},
+	{
+		"id": 8,
+		"label": "Financial Expenses",
+		"value": "financial_expenses"
+	},
+	{
+		"id": 9,
+		"label": "Investments",
+		"value": "investments"
+	},
+	{
+		"id": 10,
+		"label": "Income",
+		"value": "income"
+	},
+	{
+		"id": 11,
+		"label": "Others",
+		"value": "others"
+	}
+]
