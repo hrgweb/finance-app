@@ -11,12 +11,19 @@
 	});
 
 	let { value = $bindable() } = $props<{ value: DateValue | undefined }>();
+	let open = $state(false);
+
+	$effect(() => {
+		if (value) {
+			open = false;
+		}
+	});
 
 	// let value = $state<DateValue | undefined>();
 	let contentRef = $state<HTMLElement | null>(null);
 </script>
 
-<Popover.Root>
+<Popover.Root bind:open>
 	<Popover.Trigger
 		class={cn(
 			buttonVariants({
