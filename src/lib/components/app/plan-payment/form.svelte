@@ -7,8 +7,25 @@
 	import accountList from '$lib/data/accounts.json';
 	import paymentTypeList from '$lib/data/paymentTypes.json';
 	import frequencyList from '$lib/data/frequencies.json';
-	import type { IAccount, ICategory, IFrequency, IPaymentType } from '$lib/types';
+	import type { IAccount, ICategory, IFrequency, INotification, IPaymentType } from '$lib/types';
 	import Textarea from '$lib/components/ui/textarea/textarea.svelte';
+	import Datepicker from '$lib/shared/datepicker.svelte';
+	import type { DateValue } from '@internationalized/date';
+	import notificationList from '$lib/data/notifications.json';
+
+	interface IForm {
+		name: string;
+		category: string | number;
+		account: string | number;
+		amount: number;
+		paymentType: string | number;
+		payee: string;
+		frequency: string | number;
+		note: string;
+		date: Date | string | undefined;
+		notification: string | number;
+		labels: string[];
+	}
 
 	let category = $state<string>('');
 	let categories = $state<ICategory[]>(categoryList);
@@ -18,11 +35,33 @@
 	let paymentTypes = $state<IPaymentType[]>(paymentTypeList);
 	let frequency = $state<string>('');
 	let frequencies = $state<IFrequency[]>(frequencyList);
+	let notification = $state<string>('');
+	let notifications = $state<INotification[]>(notificationList);
+	let form = $state<IForm>({
+		name: '',
+		category: '',
+		account: '',
+		amount: 0,
+		paymentType: '',
+		payee: '',
+		frequency: '',
+		note: '',
+		date: new Date(),
+		notification: '',
+		labels: []
+	});
+	let selectedDate = $state<DateValue | undefined>();
+
+	$effect(() => {
+		form.date = selectedDate?.toString();
+	});
 
 	$inspect(categories);
 </script>
 
-<form method="POST" class="space-y-4">
+<form method="POST" class="w-1/2 space-y-4 rounded-md bg-gray-300 p-4">
+	<h3 class="text-md font-medium">New Plan Payment</h3>
+
 	<InputWrapper label="Name" labelFor="name" class="flex w-1/2  px-0!">
 		<Input type="text" id="name" class="w-full" />
 	</InputWrapper>
@@ -83,13 +122,22 @@
 	</InputWrapper>
 
 	<InputWrapper label="Note" labelFor="note" class="flex w-1/2  px-0!">
-		<Textarea placeholder="Type your message here." />
+		<Textarea class="bg-white" placeholder="Type your message here." />
 	</InputWrapper>
 
+	<pre>{selectedDate?.toString()}</pre>
+
 	<div class="flex items-center gap-6">
-		<InputWrapper label="Date" labelFor="date" class="flex w-1/2  px-0!">date</InputWrapper>
+		<InputWrapper label="Date" labelFor="date" class="flex w-1/2  px-0!">
+			<Datepicker bind:value={selectedDate} />
+		</InputWrapper>
 		<InputWrapper label="Notification" labelFor="notification" class="flex w-1/2  px-0!">
-			notif
+			<Select
+				class="dark:border-none dark:bg-[#292D33]"
+				bind:value={account}
+				items={notifications}
+				triggerStr="Select Account"
+			/>
 		</InputWrapper>
 	</div>
 

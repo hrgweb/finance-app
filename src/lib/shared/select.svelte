@@ -20,7 +20,7 @@
 </script>
 
 <Select.Root type="single" bind:value onValueChange={onchange}>
-	<Select.Trigger class="w-full {className}">
+	<Select.Trigger class="w-full {className} bg-white">
 		{triggerContent}
 	</Select.Trigger>
 	<Select.Content>

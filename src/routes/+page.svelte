@@ -8,11 +8,12 @@
 		<h2 class="text-2xl font-bold">HRG Finance App</h2>
 	</div>
 
-	<div class="content flex-1 border-2 border-red-500">
+	<div class=" flex-1 bg-slate-200 p-6">
 		<Button>Planned Payments</Button>
-		<br />
-		<br />
-		<Form />
+
+		<div class="mt-4 h-[calc(100vh-300px)] overflow-y-auto border-2 border-blue-500">
+			<Form />
+		</div>
 	</div>
 
 	<div class="footer border-2 border-blue-500 text-center">Copyright 2025 &copy;</div>
