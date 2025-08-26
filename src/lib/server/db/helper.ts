@@ -7,13 +7,8 @@ export function uuid(name: string) {
 
 export function timestamps() {
 	return {
-		createdAt: integer('created_at', { mode: 'timestamp' })
-			.notNull()
-			.default(sql`(unixepoch())`), // auto set when inserting
-		updatedAt: integer('updated_at', { mode: 'timestamp' })
-			.notNull()
-			.default(sql`(unixepoch())`)
-			.$onUpdate(() => sql`(unixepoch())`), // auto update on row update
+		createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
+		updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull(),
 		deletedAt: integer('deleted_at', { mode: 'timestamp' })
 	};
 }

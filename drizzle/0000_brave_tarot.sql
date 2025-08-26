@@ -5,7 +5,7 @@ CREATE TABLE `accounts` (
 	`total_amount` integer NOT NULL,
 	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
 	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`deleted_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`deleted_at` integer DEFAULT (unixepoch()),
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
@@ -18,7 +18,7 @@ CREATE TABLE `banks` (
 	`tel_no` text,
 	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
 	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`deleted_at` integer DEFAULT (unixepoch()) NOT NULL
+	`deleted_at` integer DEFAULT (unixepoch())
 );
 --> statement-breakpoint
 CREATE TABLE `loan_payments` (
@@ -29,7 +29,7 @@ CREATE TABLE `loan_payments` (
 	`amount` integer NOT NULL,
 	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
 	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`deleted_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`deleted_at` integer DEFAULT (unixepoch()),
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`bank_id`) REFERENCES `banks`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`loan_id`) REFERENCES `loans`(`id`) ON UPDATE no action ON DELETE no action
@@ -43,7 +43,7 @@ CREATE TABLE `loans` (
 	`terms_in_months` integer NOT NULL,
 	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
 	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`deleted_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`deleted_at` integer DEFAULT (unixepoch()),
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`bank_id`) REFERENCES `banks`(`id`) ON UPDATE no action ON DELETE no action
 );
@@ -59,5 +59,5 @@ CREATE TABLE `users` (
 	`occupation` text,
 	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
 	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`deleted_at` integer DEFAULT (unixepoch()) NOT NULL
+	`deleted_at` integer DEFAULT (unixepoch())
 );

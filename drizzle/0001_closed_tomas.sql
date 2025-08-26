@@ -4,8 +4,8 @@ CREATE TABLE `__new_accounts` (
 	`user_id` text,
 	`initial_amount` integer NOT NULL,
 	`total_amount` integer NOT NULL,
-	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`created_at` integer NOT NULL,
+	`updated_at` integer NOT NULL,
 	`deleted_at` integer,
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action
 );
@@ -21,8 +21,8 @@ CREATE TABLE `__new_banks` (
 	`address` text,
 	`mobile_no` text,
 	`tel_no` text,
-	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`created_at` integer NOT NULL,
+	`updated_at` integer NOT NULL,
 	`deleted_at` integer
 );
 --> statement-breakpoint
@@ -35,8 +35,8 @@ CREATE TABLE `__new_loan_payments` (
 	`bank_id` text,
 	`loan_id` text,
 	`amount` integer NOT NULL,
-	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`created_at` integer NOT NULL,
+	`updated_at` integer NOT NULL,
 	`deleted_at` integer,
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`bank_id`) REFERENCES `banks`(`id`) ON UPDATE no action ON DELETE no action,
@@ -52,8 +52,8 @@ CREATE TABLE `__new_loans` (
 	`bank_id` text,
 	`principal_amount` integer NOT NULL,
 	`terms_in_months` integer NOT NULL,
-	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`created_at` integer NOT NULL,
+	`updated_at` integer NOT NULL,
 	`deleted_at` integer,
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`bank_id`) REFERENCES `banks`(`id`) ON UPDATE no action ON DELETE no action
@@ -71,8 +71,8 @@ CREATE TABLE `__new_users` (
 	`tel_no` text,
 	`address` text NOT NULL,
 	`occupation` text,
-	`created_at` integer DEFAULT (unixepoch()) NOT NULL,
-	`updated_at` integer DEFAULT (unixepoch()) NOT NULL,
+	`created_at` integer NOT NULL,
+	`updated_at` integer NOT NULL,
 	`deleted_at` integer
 );
 --> statement-breakpoint
