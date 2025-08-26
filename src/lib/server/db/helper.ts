@@ -15,8 +15,5 @@ export function timestamps() {
 			.default(sql`(unixepoch())`)
 			.$onUpdate(() => sql`(unixepoch())`), // auto update on row update
 		deletedAt: integer('deleted_at', { mode: 'timestamp' })
-			.notNull()
-			.default(sql`(unixepoch())`)
-			.$onUpdate(() => sql`(unixepoch())`) // auto update on row update
 	};
 }

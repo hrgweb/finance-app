@@ -65,7 +65,7 @@ function error(e: Error) {
 
 export async function handleCreate<T extends Record<string, any>>(options: InsertOptions<T>) {
 	const { table, payload } = options;
-	const body = { ...payload, createdAt: sql`NOW()`, updatedAt: sql`NOW()` };
+	const body = { ...payload, createdAt: sql`CURRENT_TIMESTAMP`, updatedAt: sql`CURRENT_TIMESTAMP` };
 
 	try {
 		const result = (await db.insert(table).values(body).returning()) as any[];
@@ -78,7 +78,7 @@ export async function handleCreate<T extends Record<string, any>>(options: Inser
 
 export async function handleUpdate<T extends Record<string, any>>(options: UpdateOptions<T>) {
 	const { table, payload, key = 'id', id } = options;
-	const body = { ...payload, updatedAt: sql`NOW()` };
+	const body = { ...payload, updatedAt: sql`CURRENT_TIMESTAMP` };
 
 	try {
 		// Check if has record
@@ -99,7 +99,7 @@ export async function handleUpdate<T extends Record<string, any>>(options: Updat
 
 export async function handleDelete<T extends Record<string, any>>(options: DeleteOptions<T>) {
 	const { table, key = 'id', id } = options;
-	const body = { deletedAt: sql`NOW()` };
+	const body = { deletedAt: sql`CURRENT_TIMESTAMP` };
 
 	try {
 		// Check if has record

@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "633acf61-037b-4823-8fb7-c8ee3158d2cc",
-  "prevId": "1030671b-97f6-4f21-aa12-d0bf734b66d6",
+  "id": "c595999a-ee22-4eb0-8165-87de687d96b8",
+  "prevId": "633acf61-037b-4823-8fb7-c8ee3158d2cc",
   "tables": {
     "accounts": {
       "name": "accounts",
@@ -55,7 +55,7 @@
           "name": "deleted_at",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         }
       },
@@ -144,7 +144,7 @@
           "name": "deleted_at",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         }
       },
@@ -212,7 +212,7 @@
           "name": "deleted_at",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         }
       },
@@ -320,7 +320,7 @@
           "name": "deleted_at",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         }
       },
@@ -436,7 +436,7 @@
           "name": "deleted_at",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         }
       },
