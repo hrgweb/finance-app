@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1756214462722,
+      "tag": "0000_cultured_virginia_dare",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1756214939012,
+      "tag": "0001_cute_cobalt_man",
+      "breakpoints": true
+    }
+  ]
+}
