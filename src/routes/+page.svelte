@@ -1,6 +1,10 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Form from '$lib/components/app/plan-payment/form.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import { onMount } from 'svelte';
+
+	onMount(async () => await goto('/payroll'));
 </script>
 
 <div class="flex h-screen flex-col justify-between space-y-6 bg-zinc-100 px-12 py-10">

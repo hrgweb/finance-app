@@ -8,7 +8,6 @@ export const GET: RequestHandler = async ({ params }) => {
 
 export const PATCH: RequestHandler = async ({ request, params }): Promise<Response> => {
 	const payload = await request.json();
-	console.log(payload);
 	return handleUpdate({
 		table: banks,
 		payload,
