@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input/input.svelte';
 	import InputWrapper from '$lib/shared/input-wrapper.svelte';
-	import SuperDebug, { superForm } from 'sveltekit-superforms';
+	import { superForm } from 'sveltekit-superforms';
 	import { AMOUNT_POSITIVE, PERCENT_STR } from '$lib/const.js';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 
