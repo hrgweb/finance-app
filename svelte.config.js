@@ -16,7 +16,7 @@ const config = {
 			split: true
 		}),
 		csrf: {
-			checkOrigin: false
+			trustedOrigins: ['*']
 		}
 	}
 };
