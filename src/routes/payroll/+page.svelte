@@ -4,6 +4,7 @@
 	import { page } from '$app/state';
 	import SuperDebug, { superForm } from 'sveltekit-superforms';
 	import { AMOUNT_POSITIVE, PERCENT_STR } from '$lib/const.js';
+	import Separator from '$lib/components/ui/separator/separator.svelte';
 
 	let { data } = $props();
 
@@ -45,10 +46,10 @@
 	$inspect(data);
 </script>
 
-<SuperDebug data={$form} />
+<!-- <SuperDebug data={$form} /> -->
 
-{#snippet compute(amount: number, show = true, positive = true)}
-	<span class="w-[200px] pl-3">
+{#snippet compute(amount: number, show = true, positive = true, className = '')}
+	<span class="w-[300px] pl-3 {className}">
 		{#if show}
 			{#if !positive}
 				-
@@ -123,11 +124,11 @@
 				class="flex flex-row items-center px-0!"
 				labelClass="w-[200px] max-w-[200px]"
 			>
-				<Input type="number" id="sss" class="w-full" bind:value={$form.sss} />
+				<Input type="number" id="sss" class="w-full" bind:value={$form.sssPercentage} />
 				{@render compute(
 					calcDeduction({
 						grossSalary: $form.grossSalary,
-						percentageDeduction: $form.sss
+						percentageDeduction: $form.sssPercentage
 					}),
 					COMPUTE_RENDER,
 					!AMOUNT_POSITIVE
@@ -139,11 +140,11 @@
 				class="flex flex-row items-center px-0!"
 				labelClass="w-[200px] max-w-[200px]"
 			>
-				<Input type="number" id="pagibig" class="w-full" bind:value={$form.pagibig} />
+				<Input type="number" id="pagibig" class="w-full" bind:value={$form.pagibigPercentage} />
 				{@render compute(
 					calcDeduction({
 						grossSalary: $form.grossSalary,
-						percentageDeduction: $form.pagibig
+						percentageDeduction: $form.pagibigPercentage
 					}),
 					COMPUTE_RENDER,
 					!AMOUNT_POSITIVE
@@ -155,16 +156,31 @@
 				class="flex flex-row items-center px-0!"
 				labelClass="w-[200px] max-w-[200px]"
 			>
-				<Input type="number" id="philhealth" class="w-full" bind:value={$form.philhealth} />
+				<Input
+					type="number"
+					id="philhealth"
+					class="w-full"
+					bind:value={$form.philhealthPercentage}
+				/>
+				<!-- <input type="text" bind:value=""> -->
 				{@render compute(
 					calcDeduction({
 						grossSalary: $form.grossSalary,
-						percentageDeduction: $form.philhealth
+						percentageDeduction: $form.philhealthPercentage
 					}),
 					COMPUTE_RENDER,
 					!AMOUNT_POSITIVE
 				)}
 			</InputWrapper>
 		</div>
+
+		<Separator class="bg-slate-300" />
+
+		<!-- <footer>
+			<div class="flex items-center justify-between">
+				<span class="text-lg font-medium uppercase">NET INCOME:</span>
+				{@render compute(2500, COMPUTE_RENDER, AMOUNT_POSITIVE, 'text-right text-lg font-medium')}
+			</div>
+		</footer> -->
 	</form>
 </div>

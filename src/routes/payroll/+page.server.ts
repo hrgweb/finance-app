@@ -8,9 +8,12 @@ const schema = z.object({
 	nightDiff: z.number(),
 	otPercentage: z.number().default(125),
 	otHrs: z.number().default(3),
-	sss: z.number().default(9),
-	pagibig: z.number().default(7),
-	philhealth: z.number().default(5)
+	sssPercentage: z.number().default(9),
+	sssDeduction: z.number(),
+	pagibigPercentage: z.number().default(7),
+	pagibigDeduction: z.number(),
+	philhealthPercentage: z.number().default(5),
+	philhealthDeduction: z.number()
 });
 
 export const load: PageServerLoad = async () => {
