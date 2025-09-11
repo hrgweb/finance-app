@@ -172,7 +172,7 @@
 				)}
 				<input
 					bind:this={otInput}
-					type="text"
+					type="hidden"
 					value={(
 						calcAddition({
 							grossSalary: $form.grossSalary,
@@ -203,7 +203,7 @@
 				)}
 				<input
 					bind:this={sssDeductionInput}
-					type="text"
+					type="hidden"
 					value={calcDeduction({
 						grossSalary: $form.grossSalary,
 						percentageDeduction: $form.sssPercentage
@@ -227,7 +227,7 @@
 				)}
 				<input
 					bind:this={pagibigDeductionInput}
-					type="text"
+					type="hidden"
 					value={calcDeduction({
 						grossSalary: $form.grossSalary,
 						percentageDeduction: $form.pagibigPercentage
@@ -256,7 +256,7 @@
 				)}
 				<input
 					bind:this={philhealthDeductionInput}
-					type="text"
+					type="hidden"
 					value={calcDeduction({
 						grossSalary: $form.grossSalary,
 						percentageDeduction: $form.philhealthPercentage
