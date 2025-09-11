@@ -8,6 +8,7 @@ const schema = z.object({
 	nightDiff: z.number(),
 	otPercentage: z.number().default(125),
 	otHrs: z.number().default(3),
+	ot: z.number(),
 	sssPercentage: z.number().default(9),
 	sssDeduction: z.number(),
 	pagibigPercentage: z.number().default(7),
