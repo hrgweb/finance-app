@@ -93,7 +93,7 @@
 	$inspect(data);
 </script>
 
-<SuperDebug data={$form} />
+<!-- <SuperDebug data={$form} /> -->
 
 {#snippet compute(amount: number, show = true, positive = true, className = '')}
 	<span class="w-[300px] pl-3 {className}">
