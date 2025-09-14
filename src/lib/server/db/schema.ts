@@ -6,9 +6,9 @@ export const users = sqliteTable('users', {
 	name: text('name').notNull(),
 	email: text('email').notNull(),
 	password: text('password').notNull(),
-	mobileNo: text('mobile_no').notNull(),
+	mobileNo: text('mobile_no'),
 	telNo: text('tel_no'),
-	address: text('address').notNull(),
+	address: text('address'),
 	occupation: text('occupation'),
 	...timestamps()
 });

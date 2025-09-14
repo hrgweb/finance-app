@@ -15,6 +15,13 @@
       "when": 1756222168295,
       "tag": "0001_closed_tomas",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1757866428192,
+      "tag": "0002_crazy_rachel_grey",
+      "breakpoints": true
     }
   ]
 }

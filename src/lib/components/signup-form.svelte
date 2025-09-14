@@ -3,29 +3,38 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { Label } from '$lib/components/ui/label/index.js';
+	import { page } from '$app/state';
+	import SuperDebug, { superForm } from 'sveltekit-superforms';
 
-	const id = $props.id();
+	const { form, enhance, errors } = superForm(page.data.form);
 </script>
+
+<!-- <pre>{JSON.stringify($errors)}</pre> -->
 
 <Card.Root class="mx-auto w-full max-w-sm">
 	<Card.Header>
-		<Card.Title class="text-2xl">Login</Card.Title>
-		<Card.Description>Enter your email below to login to your account</Card.Description>
+		<Card.Title class="text-2xl">Sign Up</Card.Title>
+		<Card.Description>Create an account to login.</Card.Description>
 	</Card.Header>
 	<Card.Content>
-		<div class="grid gap-4">
+		<form method="POST" class="grid gap-4" action="?/signup" use:enhance>
 			<div class="grid gap-2">
-				<Label for="email-{id}">Email</Label>
-				<Input id="email-{id}" type="email" placeholder="m@example.com" required />
+				<Label for="name">Name</Label>
+				<Input id="name" type="name" name="name" />
 			</div>
 			<div class="grid gap-2">
-				<div class="flex items-center">
-					<Label for="password-{id}">Password</Label>
-					<a href="##" class="ml-auto inline-block text-sm underline"> Forgot your password? </a>
-				</div>
-				<Input id="password-{id}" type="password" required />
+				<Label for="email">Email</Label>
+				<Input id="email" type="email" />
 			</div>
-			<Button type="submit" class="w-full">Login</Button>
+			<div class="grid gap-2">
+				<Label for="password">Password</Label>
+				<Input id="password" type="password" name="password" />
+			</div>
+			<div class="grid gap-2">
+				<Label for="confirm-password">Confirm Password</Label>
+				<Input id="confirm-password" type="password" name="confirmPassword" />
+			</div>
+			<Button type="submit" class="w-full">Sign Up</Button>
 			<Button variant="outline" class="w-full">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 					<path
@@ -33,12 +42,12 @@
 						fill="currentColor"
 					/>
 				</svg>
-				Login with Google
+				Signup with Google
 			</Button>
-		</div>
+		</form>
 		<div class="mt-4 text-center text-sm">
-			Don't have an account?
-			<a href="/signup" class="underline"> Sign up </a>
+			Already have an account?
+			<a href="/login" class="underline">Login</a>
 		</div>
 	</Card.Content>
 </Card.Root>
