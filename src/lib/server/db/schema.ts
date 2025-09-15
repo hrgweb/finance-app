@@ -1,29 +1,32 @@
-import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
-import { timestamps, uuid } from './helper';
+import { pgTable, varchar, uuid, integer } from 'drizzle-orm/pg-core';
+import { timestamps } from './helper';
+import { sql } from 'drizzle-orm';
 
-export const users = sqliteTable('users', {
-	id: uuid('id').primaryKey(),
-	name: text('name').notNull(),
-	email: text('email').notNull(),
-	password: text('password').notNull(),
-	mobileNo: text('mobile_no'),
-	telNo: text('tel_no'),
-	address: text('address'),
-	occupation: text('occupation'),
+export const users = pgTable('users', {
+	id: uuid('id')
+		.default(sql`gen_random_uuid()`)
+		.primaryKey(),
+	name: varchar('name').notNull(),
+	email: varchar('email').notNull(),
+	password: varchar('password').notNull(),
+	mobileNo: varchar('mobile_no'),
+	telNo: varchar('tel_no'),
+	address: varchar('address'),
+	occupation: varchar('occupation'),
 	...timestamps()
 });
 
-export const banks = sqliteTable('banks', {
+export const banks = pgTable('banks', {
 	id: uuid('id').primaryKey(),
-	name: text('name').notNull(),
-	description: text('description'),
-	address: text('address'),
-	mobileNo: text('mobile_no'),
-	telNo: text('tel_no'),
+	name: varchar('name').notNull(),
+	description: varchar('description'),
+	address: varchar('address'),
+	mobileNo: varchar('mobile_no'),
+	telNo: varchar('tel_no'),
 	...timestamps()
 });
 
-export const loans = sqliteTable('loans', {
+export const loans = pgTable('loans', {
 	id: uuid('id').primaryKey(),
 	userId: uuid('user_id').references(() => users.id),
 	bankId: uuid('bank_id').references(() => banks.id),
@@ -32,7 +35,7 @@ export const loans = sqliteTable('loans', {
 	...timestamps()
 });
 
-export const loanPayments = sqliteTable('loan_payments', {
+export const loanPayments = pgTable('loan_payments', {
 	id: uuid('id').primaryKey(),
 	userId: uuid('user_id').references(() => users.id),
 	bankId: uuid('bank_id').references(() => banks.id),
@@ -41,7 +44,7 @@ export const loanPayments = sqliteTable('loan_payments', {
 	...timestamps()
 });
 
-export const accounts = sqliteTable('accounts', {
+export const accounts = pgTable('accounts', {
 	id: uuid('id').primaryKey(),
 	userId: uuid('user_id').references(() => users.id),
 	initialAmount: integer('initial_amount').notNull(),

@@ -1,14 +1,9 @@
-import { integer, text } from 'drizzle-orm/sqlite-core';
-import { sql } from 'drizzle-orm';
-
-export function uuid(name: string) {
-	return text(name).$defaultFn(() => crypto.randomUUID());
-}
+import { timestamp } from 'drizzle-orm/pg-core';
 
 export function timestamps() {
 	return {
-		createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
-		updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull(),
-		deletedAt: integer('deleted_at', { mode: 'timestamp' })
+		createdAt: timestamp('created_at'),
+		updatedAt: timestamp('updated_at'),
+		deletedAt: timestamp('deleted_at')
 	};
 }
