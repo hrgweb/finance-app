@@ -46,7 +46,7 @@ export const actions = {
 			} as never;
 			const user = await db.insert(users).values(body).returning();
 			console.log(user);
-			return user;
+			return { user, form };
 		} catch (error) {
 			console.log(error);
 			return fail(500, { form });
